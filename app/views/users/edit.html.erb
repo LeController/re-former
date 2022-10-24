@@ -1,0 +1,23 @@
+<h1>Edit a user:</h1>
+<% if @errors %>
+  <h3>Please fix the following errors !!</h3>
+  <ul>
+  <% @errors.each do |error| %>
+      <li><%= error %></li>
+  <% end %>
+  </ul>
+  <br>
+<% end %>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Your user name here" %>
+  <%= form.text_field :username %>
+  <br>
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email, placeholder: "exemplar@exemplar.com" %>
+  <br>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <br>
+  <%= form.submit "Submit!" %>
+<% end %>
